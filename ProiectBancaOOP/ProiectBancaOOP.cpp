@@ -26,8 +26,15 @@
 
 int main()
 {
-    ContBancar test("popistas", "Sergiu", "ro10235");
-    ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
+    //ContBancar test("popistas", "Sergiu", "ro10235");
+    //ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
+    std::cout << "alege una din urmatoare optiuni: \n";
+    std::cout << "1-> numar conturi\n";
+    std::cout << "2-> creare cont\n";
+    std::cout << "3-> modificare cont\n";
+    std::cout << "4-> stergere cont\n";
+    std::cout << "5-> eliberare/depunere\n";
+    std::cout << "6-> detalii cont\n";
 
     //std::cout << "Hello World!\n";
 }
