@@ -22,46 +22,57 @@
 //    3. Un sistem in care putem sa salvam datele acestea intr - un fisier local(CSV file)
 
 #include <iostream>
-#include "ContBancar.h"
+//#include "ContBancar.h"
+#include "ManagerConturi.h"
 
 int main()
 {
     //ContBancar test("popistas", "Sergiu", "ro10235");
     //ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
-    std::cout << "alege una din urmatoare optiuni: \n";
-    std::cout << "1-> numar conturi\n";
-    std::cout << "2-> creare cont\n";
-    std::cout << "3-> modificare cont\n";
-    std::cout << "4-> stergere cont\n";
-    std::cout << "5-> eliberare/depunere\n";
-    std::cout << "6-> detalii cont\n";
     int optiune;
-    std:: cout<< "introducceti operatia pe care o doriti\n";
-    std::cin >> optiune;
-    switch (optiune)
-    {
-    case 1:
-        std::cout << "ati ales optiunea 1\n";
-        break;
-    case 2:
-        std::cout << "ati ales optiunea 2\n";
-        break;
-    case 3:
-        std::cout << "ati ales optiunea 3\n";
-        break;
-    case 4:
-        std::cout << "ati ales optiunea 4\n";
-        break;
-    case 5:
-        std::cout << "ati ales optiunea 5\n";
-        break;
-    case 6:
-        std::cout << "ati ales optiunea 6\n";
-        break;
-    default:
-        std::cout << "optiune invalida\n";
-        break;
-    }
+    ManagerConturi manager;
+    do {
+        std::cout << "alege una din urmatoare optiuni: \n";
+        std::cout << "1-> numar conturi\n";
+        std::cout << "2-> creare cont\n";
+        std::cout << "3-> modificare cont\n";
+        std::cout << "4-> stergere cont\n";
+        std::cout << "5-> eliberare/depunere\n";
+        std::cout << "6-> detalii cont\n";
+        std::cout << "0-> exit\n";
+        std::cout << "introduceti operatia pe care o doriti\n";
+        std::cin >> optiune;
+        switch (optiune)
+        {
+        case 1:
+            std::cout << "ati ales optiunea 1\n";
+            break;
+        case 2:
+            std::cout << "ati ales optiunea 2\n";
+            system("cls");
+            manager.adaugareCont();
+            break;
+        case 3:
+            std::cout << "ati ales optiunea 3\n";
+            break;
+        case 4:
+            std::cout << "ati ales optiunea 4\n";
+            break;
+        case 5:
+            std::cout << "ati ales optiunea 5\n";
+            break;
+        case 6:
+            std::cout << "ati ales optiunea 6\n";
+            break;
+        case 0:
+            std::cout << "multumim, la revedere\n";
+            break;
+        default:
+            std::cout << "optiune invalida\n";
+            break;
+        }
+    } while (optiune != 0);
+    
 
     //std::cout << "Hello World!\n";
 }
