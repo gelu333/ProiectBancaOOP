@@ -1,6 +1,6 @@
 #include "ManagerConturi.h"
 #include<iostream>
-
+//TODO TEMA: Adaptati metoda CreateIban pentru a genera Ibanuri unice 
 std::string ManagerConturi::CreateIban()
 {
 	return std::string();
