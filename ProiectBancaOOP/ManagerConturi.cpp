@@ -1,6 +1,7 @@
 #include "ManagerConturi.h"
 #include<iostream>
 //TODO TEMA: Adaptati metoda CreateIban pentru a genera Ibanuri unice 
+//Format:RO44ItSchool(caractere alfa-numerice - 5) astea ultimele 5 sa fie unice pentru IBAN
 std::string ManagerConturi::CreateIban()
 {
 	return std::string();
