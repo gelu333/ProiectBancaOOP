@@ -35,6 +35,33 @@ int main()
     std::cout << "4-> stergere cont\n";
     std::cout << "5-> eliberare/depunere\n";
     std::cout << "6-> detalii cont\n";
+    int optiune;
+    std:: cout<< "introducceti operatia pe care o doriti\n";
+    std::cin >> optiune;
+    switch (optiune)
+    {
+    case 1:
+        std::cout << "ati ales optiunea 1\n";
+        break;
+    case 2:
+        std::cout << "ati ales optiunea 2\n";
+        break;
+    case 3:
+        std::cout << "ati ales optiunea 3\n";
+        break;
+    case 4:
+        std::cout << "ati ales optiunea 4\n";
+        break;
+    case 5:
+        std::cout << "ati ales optiunea 5\n";
+        break;
+    case 6:
+        std::cout << "ati ales optiunea 6\n";
+        break;
+    default:
+        std::cout << "optiune invalida\n";
+        break;
+    }
 
     //std::cout << "Hello World!\n";
 }
