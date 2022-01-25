@@ -5,7 +5,6 @@
 //Format:RO44ItSchool(caractere alfa-numerice - 5) astea ultimele 5 sa fie unice pentru IBAN
 std::string ManagerConturi::CreateIban()
 {
-	
 	int iban = 11111 + (std::rand() % (99999));
 	std::string stringIban = std::to_string(iban);
 	std::cout << "IBAN generat:  "<< stringIban << std::endl;
@@ -13,6 +12,19 @@ std::string ManagerConturi::CreateIban()
 	return stringIbanComplet;
 
 }
+/*alternativa
+std::string ManagerConturi::CreateIban()
+ {
+     std::string IBAN= "RO44ItSchool", IBAn;
+     char alphanumeric[] = "0123456789QWERTYUIOPLKJHGFDSAZXCVBNM";
+     for (int i = 0; i < 5; i++)
+     {
+         IBAn = alphanumeric[rand() % (sizeof(alphanumeric) - 1)]; 
+         IBAN = IBAN + IBAn;
+     }
+     return IBAN;*/
+
+
 
 void ManagerConturi::adaugareCont()
 {
@@ -35,4 +47,37 @@ void ManagerConturi::adaugareCont()
 	std::cout << prenume << std::endl;
 	std::cout << iban << std::endl;
 
+}
+
+int ManagerConturi::GetNumarConturi()
+{
+	int numarConturi = m_listaConturi.size();
+
+	return numarConturi;
+}
+
+void ManagerConturi::printAllConturi()
+{
+	/*for (int i = 0; i < m_listaConturi.size(), i++)
+	{
+		m_listaConturi[i]->getNume();
+	}*/
+
+	/*for (auto it = m_listaConturi.begin(); it != m_listaConturi.end(); it++)
+	{
+		(*it)->getNume();
+	}*/
+	for (auto& cont : m_listaConturi)
+	{
+		//cont->getNume();
+		std::cout << "nume: " << cont->getNume() << std::endl;
+		std::cout << "prenume: " << cont->getPrenume() << std::endl;
+		std::cout << "iban: " << cont->getIban() << std::endl;
+		std::cout << "sold: " << cont->getSold() << std::endl;
+
+
+	}
+	std::cout << "Apasati/introduceti orice tasta '0' pentru a va intoarce\n";
+	char back;
+	std::cin >> back;
 }

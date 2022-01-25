@@ -20,6 +20,9 @@ public:
 	ContBancar(std::string nume, std::string prenume, std::string iban);
 
 	std::string getNume() const;
+	std::string getPrenume() const;
+	std::string getIban() const;
+	float getSold() const;
 
 
 };
