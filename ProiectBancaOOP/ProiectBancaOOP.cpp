@@ -65,7 +65,7 @@ int main()
         case 6:
             std::cout << "ati ales optiunea 6\n";
             system("cls");
-            //tema2:vreti sa cautati un anumit cont?->apasati tasta 1
+            //TODO:tema2:vreti sa cautati un anumit cont?->apasati tasta 1
             //      o metoda prin care cereti detalii despre contul pe care vrem sa il gasim
             //      si desigur sa il cautam iar dupa aceea sa il printam
             //Vrei sa le accesati pe toate->apasati tasta 2
