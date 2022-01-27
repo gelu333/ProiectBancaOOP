@@ -19,6 +19,8 @@ public:
 
 	void EraseAccount();
 
+	void Eliberare_Depunere();
+
 
 };
 

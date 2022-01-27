@@ -24,6 +24,8 @@ public:
 	std::string getIban() const;
 	float getSold() const;
 
+	//void depunere(float suma);
+	void manipulareSold(float suma);
 
 };
 

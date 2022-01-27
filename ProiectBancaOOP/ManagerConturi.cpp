@@ -105,3 +105,27 @@ void ManagerConturi::EraseAccount()
 	delete cont;
 	
 }
+
+void ManagerConturi::Eliberare_Depunere()
+{
+	ContBancar* cont = FindAccount();
+	if (cont != nullptr)
+	{
+		float valoare;
+		std::cout << "introdu valoare: \n";
+		std::cin >> valoare;
+		cont->manipulareSold(valoare);
+		/*if (valoare >= 0)
+		{
+			cont->depunere(valoare);
+		}
+		else
+		{
+			cont->retragere(valoare);
+		}*/
+	}
+	else
+	{
+		std::cout << "contul este inexistent\n";
+	}
+}

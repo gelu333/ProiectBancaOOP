@@ -35,10 +35,10 @@ int main()
         std::cout << "alege una din urmatoare optiuni: \n";
         std::cout << "1-> numar conturi\n";
         std::cout << "2-> creare cont\n";
-        std::cout << "3-> modificare cont\n";
+        std::cout << "3-> modificare cont\n";//TODO: homework - > Modificare cont poate schimba nume, prenume
         std::cout << "4-> stergere cont\n";
         std::cout << "5-> eliberare/depunere\n";
-        std::cout << "6-> detalii cont\n";
+        std::cout << "6-> detalii cont\n";//TODO: tema restanta
         std::cout << "0-> exit\n";
         std::cout << "introduceti operatia pe care o doriti\n";
         std::cin >> optiune;
@@ -62,6 +62,7 @@ int main()
             break;
         case 5:
             std::cout << "ati ales optiunea 5\n";
+            manager.Eliberare_Depunere();
             break;
         case 6:
             std::cout << "ati ales optiunea 6\n";
