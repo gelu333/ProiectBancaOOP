@@ -58,6 +58,7 @@ int main()
             break;
         case 4:
             std::cout << "ati ales optiunea 4\n";
+            manager.EraseAccount();
             break;
         case 5:
             std::cout << "ati ales optiunea 5\n";

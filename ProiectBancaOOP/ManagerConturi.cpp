@@ -12,6 +12,20 @@ std::string ManagerConturi::CreateIban()
 	return stringIbanComplet;
 
 }
+ContBancar* ManagerConturi::FindAccount()
+{
+	std::cout << "numele tutularului: \n";
+	std::string nume;
+	std::cin >> nume;
+	//TOLDO trebuie extins sie facem o metoda ce accepta NUme sau Prenume, fie facem cumva in aceasta metoda
+	for (auto& cont : m_listaConturi)
+	{
+		if (cont->getNume() == nume)
+			return cont;
+	}
+	std::cout << "titularul nu a fost gasit\n";
+	return nullptr;
+}
 /*alternativa
 std::string ManagerConturi::CreateIban()
  {
@@ -80,4 +94,14 @@ void ManagerConturi::printAllConturi()
 	std::cout << "Apasati/introduceti orice tasta '0' pentru a va intoarce\n";
 	char back;
 	std::cin >> back;
+}
+
+void ManagerConturi::EraseAccount()
+{
+	std::cout << "Introduceti datele pentru contul ce urmeaza sa fie sters\n";
+	ContBancar* cont = FindAccount();
+	std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
+	m_listaConturi.erase(it);
+	delete cont;
+	
 }
