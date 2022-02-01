@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ContBancar.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="ManagerConturi.cpp" />
     <ClCompile Include="ProiectBancaOOP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContBancar.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="ManagerConturi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

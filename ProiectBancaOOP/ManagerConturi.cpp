@@ -54,12 +54,14 @@ void ManagerConturi::adaugareCont()
 	//cont bancar creat 
 	std::cout << "cont bancar creat: " << std::endl;
 	m_listaConturi.push_back(cont);
+	m_fileManager->WriteToCSV(nume, prenume, iban,cont->getSold());
 	system("cls");
 	//cont bancar creat 
-	std::cout << "cont bancar creat: " << std::endl;
+	/*std::cout << "cont bancar creat: " << std::endl;
 	std::cout << nume << std::endl;
 	std::cout << prenume << std::endl;
-	std::cout << iban << std::endl;
+	std::cout << iban << std::endl;*/
+
 
 }
 
@@ -128,4 +130,14 @@ void ManagerConturi::Eliberare_Depunere()
 	{
 		std::cout << "contul este inexistent\n";
 	}
+}
+
+ManagerConturi::ManagerConturi()
+{
+	m_fileManager = new FileManager();
+}
+
+ManagerConturi::~ManagerConturi()
+{
+	delete m_fileManager;
 }

@@ -24,12 +24,18 @@
     <ClCompile Include="ManagerConturi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContBancar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ManagerConturi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
