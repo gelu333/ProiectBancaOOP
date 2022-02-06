@@ -135,9 +135,41 @@ void ManagerConturi::Eliberare_Depunere()
 ManagerConturi::ManagerConturi()
 {
 	m_fileManager = new FileManager();
+	//populam lista conturi cu ce se afla in .csv
+	m_listaConturi = m_fileManager->ReadContBancarFromCSV();
+	/*while (ptr!=nullptr)
+	{
+		m_listaConturi.push_back(ptr);
+		ptr = m_fileManager->ReadContBancarFromCSV();
+	}*/
 }
 
 ManagerConturi::~ManagerConturi()
 {
 	delete m_fileManager;
+}
+
+void ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::string& cautaPrenume)
+{
+	int n = 0;
+
+	for (auto& cont : m_listaConturi)
+	{
+		if (cautaNume == cont->getNume() && cautaPrenume == cont->getPrenume())
+		{
+			std::cout << "nume: " << cont->getNume() << std::endl;
+			std::cout << "prenume: " << cont->getPrenume() << std::endl;
+			std::cout << "iban: " << cont->getIban() << std::endl;
+			std::cout << "sold: " << cont->getSold() << std::endl;
+			n = n + 1;
+		}
+	}
+	if (n == 0)
+	{
+		std::cout << "ne pare rau, dar criteriile de cautare nu se potrivesc cu nici un cont existent\n";
+	}
+	std::cout << "apasati orice tasta pentru a va intoarce\n";
+	char back;
+	std::cin >> back;
+
 }
