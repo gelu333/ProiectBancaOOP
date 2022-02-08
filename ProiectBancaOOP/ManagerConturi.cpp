@@ -17,7 +17,7 @@ ContBancar* ManagerConturi::FindAccount()
 	std::cout << "numele tutularului: \n";
 	std::string nume;
 	std::cin >> nume;
-	//TOLDO trebuie extins sie facem o metoda ce accepta NUme sau Prenume, fie facem cumva in aceasta metoda
+	//TOLDO-done trebuie extins sie facem o metoda ce accepta NUme sau Prenume, fie facem cumva in aceasta metoda
 	for (auto& cont : m_listaConturi)
 	{
 		if (cont->getNume() == nume)
@@ -147,11 +147,13 @@ ManagerConturi::ManagerConturi()
 ManagerConturi::~ManagerConturi()
 {
 	delete m_fileManager;
+	//m_listaConturi.clear();
+	//TODO: Iteran m_lista conturi si stergem fiecare cont in parte dupa care cler-uim
 }
 
 void ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::string& cautaPrenume)
 {
-	int n = 0;
+	bool n = false;
 
 	for (auto& cont : m_listaConturi)
 	{
@@ -161,15 +163,14 @@ void ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::
 			std::cout << "prenume: " << cont->getPrenume() << std::endl;
 			std::cout << "iban: " << cont->getIban() << std::endl;
 			std::cout << "sold: " << cont->getSold() << std::endl;
-			n = n + 1;
+			n=true;
 		}
 	}
-	if (n == 0)
+	if (n == false)
 	{
 		std::cout << "ne pare rau, dar criteriile de cautare nu se potrivesc cu nici un cont existent\n";
 	}
-	std::cout << "apasati orice tasta pentru a va intoarce\n";
 	char back;
+	std::cout << "apasati orice tasta pentru a va intoarce\n";
 	std::cin >> back;
-
 }

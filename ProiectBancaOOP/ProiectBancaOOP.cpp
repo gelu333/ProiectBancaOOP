@@ -24,15 +24,18 @@
 #include <iostream>
 //#include "ContBancar.h"
 #include "ManagerConturi.h"
-
+//TODO:la optiunea Modificare Cont , schimbarea in cauza trebuie sa fie reflectata si in .csv
+//TODO:la optiunea stergere cont dupa ce este sters din m_lista_conturi trebuie sters si din .csv
+//TODO: un sistem de user si parola ca sa asiguram ca operatorul poate sa lucreze pe statia respectiva
+//TODO: la optiunea la eliberare/depunere modificarile sa fie reflectate si in .csv
 int main()
 {
-    //1
+    
      //ContBancar test("popistas", "Sergiu", "ro10235");
      //ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
     int optiune;
     ManagerConturi manager;
-    do {//2
+    do {
         std::cout << "alege una din urmatoare optiuni: \n";
         std::cout << "1-> numar conturi\n";
         std::cout << "2-> creare cont\n";
@@ -44,7 +47,7 @@ int main()
         std::cout << "introduceti operatia pe care o doriti\n";
         std::cin >> optiune;
         switch (optiune)
-        {//3
+        {
         case 1:
             std::cout << "ati ales optiunea 1\n";
             std::cout << "numarul total de conturi este:    " << manager.GetNumarConturi() << std::endl;
@@ -68,37 +71,37 @@ int main()
         case 6:
             std::cout << "ati ales optiunea 6\n";
             system("cls");
-            //TODO:tema2:vreti sa cautati un anumit cont?->apasati tasta 1
+            //TODO-done:tema2:vreti sa cautati un anumit cont?->apasati tasta 1
             //      o metoda prin care cereti detalii despre contul pe care vrem sa il gasim
             //      si desigur sa il cautam iar dupa aceea sa il printam
             //Vrei sa le accesati pe toate->apasati tasta 2
             std::cout << "Daca vreti sa cautati un anumit cont apasati tasta 1\n";
             std::cout << "Daca vreti afisati toate conturile apasati tasta 2\n";
             int tasta;
-            do {//4
-                std::cin >> tasta;
+            std::cin >> tasta;
+            do {                
+                std::string cautaNume;
+                std::string cautaPrenume;
                 switch (tasta)
-                {//5
-                case 1:{
+                {
+                case 1:
                     std::cout << "Ati ales sa accesati un anumit cont\n";
-                    std::string cautaNume;
-                    std::string cautaPrenume;
+                    
                     std::cout << "Va rugam sa introduceti numele beneficiarului de cont\n";
                     std::cin >> cautaNume;
                     std::cout << "Va rugam sa introduceti prenumele beneficiarului de cont\n";
                     std::cin >> cautaPrenume;
                     manager.PrintASpecificCont( cautaNume, cautaPrenume);
                     break;
-                }
                 case 2:
                     std::cout << "Ati ales sa accesati toate conturile\n";
                     manager.printAllConturi();
                     break;
                 default:
                     std::cout << "Optiune invalida\n";
-                    std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";
-                }//5
-            } while (tasta != 0);//4
+                    std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";                
+                }
+            } while (tasta != 0);
             break;
         case 0:
             std::cout << "Multumim,la revedere\n";
@@ -107,6 +110,6 @@ int main()
             std::cout << "Optiune invalida\n";
             break;
         }
-        } while (optiune != 0); // 3
-}//1
+    } while (optiune != 0); 
+}
 
