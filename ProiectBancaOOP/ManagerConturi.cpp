@@ -72,38 +72,43 @@ int ManagerConturi::GetNumarConturi()
 	return numarConturi;
 }
 
-void ManagerConturi::printAllConturi()
+int ManagerConturi::printAllConturi()
 {
-	/*for (int i = 0; i < m_listaConturi.size(), i++)
+	if (GetNumarConturi()!=0)
 	{
-		m_listaConturi[i]->getNume();
-	}*/
-
-	/*for (auto it = m_listaConturi.begin(); it != m_listaConturi.end(); it++)
-	{
-		(*it)->getNume();
-	}*/
-	for (auto& cont : m_listaConturi)
-	{
-		//cont->getNume();
-		std::cout << "nume: " << cont->getNume() << std::endl;
-		std::cout << "prenume: " << cont->getPrenume() << std::endl;
-		std::cout << "iban: " << cont->getIban() << std::endl;
-		std::cout << "sold: " << cont->getSold() << std::endl;
+		for (auto& cont : m_listaConturi)
+		{
+			//cont->getNume();
+			std::cout << "nume: " << cont->getNume() << std::endl;
+			std::cout << "prenume: " << cont->getPrenume() << std::endl;
+			std::cout << "iban: " << cont->getIban() << std::endl;
+			std::cout << "sold: " << cont->getSold() << std::endl;
+		}
+		return 1;
 	}
-	/*std::cout << "Apasati tasta 0 pentru a va intoarce"<<std::endl;
-	char back;
-	std::cin >> back;*/
-	//return back;
+	else
+	{
+		return 0;
+	}
+	
+	
 }
 
-void ManagerConturi::EraseAccount()
+int ManagerConturi::EraseAccount()
 {
 	std::cout << "Introduceti datele pentru contul ce urmeaza sa fie sters\n";
 	ContBancar* cont = FindAccount();
-	std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
-	m_listaConturi.erase(it);
-	delete cont;	
+	if (cont != nullptr)
+	{
+		std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
+		m_listaConturi.erase(it);
+		delete cont;
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 void ManagerConturi::Eliberare_Depunere()
@@ -181,8 +186,8 @@ int ManagerConturi::Modificare_cont()
 	ContBancar* cont = FindAccount();
 	if(cont !=nullptr)
 	{ 
-		std::cout << "daca doriti sa modificati numele apasati orice tasta in afara de 0, doar numere\n";
-		bool n, m = false;
+		int n, m;
+		std::cout << "daca doriti sa modificati numele apasati orice tasta in afara de 0, doar numere\n";		
 		std::cin >> n;
 		if (n)
 		{

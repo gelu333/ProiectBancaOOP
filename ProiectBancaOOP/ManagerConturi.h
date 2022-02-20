@@ -18,9 +18,9 @@ public:
 
 	int GetNumarConturi();
 
-	void printAllConturi();
+	int printAllConturi();
 
-	void EraseAccount();
+	int EraseAccount();
 
 	void Eliberare_Depunere();
 

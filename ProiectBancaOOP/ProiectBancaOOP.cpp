@@ -66,9 +66,9 @@ int main()
             temp = manager.Modificare_cont();
             if (temp == 0)
             {
-                std::cout << "cont inexistent sau nume si prenume gresit\n";
-                std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 3 pentru a reincerca\n";
-                std::cin >> optiune;
+                std::cout << "cont inexistent sau nume si prenume gresit, reluati operatiunea de la inceput\n";
+                //std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 3 pentru a reincerca\n";
+                //std::cin >> optiune;
             }
             else
             {
@@ -77,10 +77,21 @@ int main()
             break;
         case 4:
             std::cout << "ati ales optiunea 4\n";
-            manager.EraseAccount();
+            temp = manager.EraseAccount();
+            if (temp == 0)
+            {
+                std::cout << "cont inexistent sau nume si prenume gresit, reluati operatiunea de la inceput\n";
+                //std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 3 pentru a reincerca\n";
+                //std::cin >> optiune;
+            }
+            else
+            {
+                std::cout << "stergere realizata cu succes\n";
+            }
             break;
         case 5:
             std::cout << "ati ales optiunea 5\n";
+            //ToDoforMe - sa il aduc la o forma ca cele de mai sus
             manager.Eliberare_Depunere();
             break;
         case 6:
@@ -111,13 +122,18 @@ int main()
                     {
                         std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 1 sau 2 pentru a face operatiile anterioare\n";
                         std::cin >> tasta;
-                    }                    
+                    }
+                    tasta = 0;
                     break;
                 case 2:
                     std::cout << "Ati ales sa accesati toate conturile\n";
-                    manager.printAllConturi();
-                    std::cout << "daca vrei sa iesi apasa 0\n";
-                    std::cin >> tasta;                   
+                    temp = manager.printAllConturi();
+                    if (temp == 0)
+                    {
+                        std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 1 sau 2 pentru a face operatiile anterioare\n";
+                        std::cin >> tasta;
+                    }
+                    tasta = 0;
                     break;
                 default:
                     std::cout << "Optiune invalida\n";
