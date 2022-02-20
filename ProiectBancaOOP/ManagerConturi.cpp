@@ -17,7 +17,7 @@ ContBancar* ManagerConturi::FindAccount()
 	std::cout << "numele tutularului: \n";
 	std::string nume;
 	std::cin >> nume;
-	//TOLDO-done trebuie extins sie facem o metoda ce accepta NUme sau Prenume, fie facem cumva in aceasta metoda
+	//ToDo-done? trebuie extins sie facem o metoda ce accepta NUme sau Prenume, fie facem cumva in aceasta metoda
 	for (auto& cont : m_listaConturi)
 	{
 		if (cont->getNume() == nume)
@@ -146,10 +146,10 @@ ManagerConturi::~ManagerConturi()
 {
 	delete m_fileManager;
 	//m_listaConturi.clear();
-	//TODO: Iteran m_lista conturi si stergem fiecare cont in parte dupa care cler-uim
+	//TODO: Iteran m_lista conturi si stergem fiecare cont in parte dupa care clear-uim
 }
 
-void ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::string& cautaPrenume)
+int ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::string& cautaPrenume)
 {
 	bool n = false;
 
@@ -167,18 +167,21 @@ void ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::
 	if (n == false)
 	{
 		std::cout << "ne pare rau, dar criteriile de cautare nu se potrivesc cu nici un cont existent\n";
+		return 0;
 	}
-	char back;
+	/*char back;
 	std::cout << "apasati orice tasta pentru a va intoarce\n";
-	std::cin >> back;
+	std::cin >> back;*/
+	return 1;
+
 }
 
-void ManagerConturi::Modificare_cont()
+int ManagerConturi::Modificare_cont()
 {
 	ContBancar* cont = FindAccount();
 	if(cont !=nullptr)
 	{ 
-		std::cout << "daca doriti sa modificati numele apasati orice tasta in afara de 0\n";
+		std::cout << "daca doriti sa modificati numele apasati orice tasta in afara de 0, doar numere\n";
 		bool n, m = false;
 		std::cin >> n;
 		if (n)
@@ -188,7 +191,7 @@ void ManagerConturi::Modificare_cont()
 			std::cin >> nume;
 			cont->changeNume(nume);
 		}
-		std::cout << "daca doriti sa schimbati prenumele apasati orice tasta in afara de 0\n";
+		std::cout << "daca doriti sa schimbati prenumele apasati orice tasta in afara de 0, doar numere\n";
 		std::cin >> m;
 		if (m)
 		{
@@ -197,9 +200,10 @@ void ManagerConturi::Modificare_cont()
 			std::cin >> prenume;
 			cont->changeNume(prenume);
 		}
+		return 1;
 	}
 	else
-	{
-		std::cout << "cont inexistent\n";
+	{		
+		return 0;
 	}
 }

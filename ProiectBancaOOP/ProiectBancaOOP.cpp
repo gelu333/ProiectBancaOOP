@@ -35,11 +35,14 @@ int main()
      //ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
     int optiune;
     ManagerConturi manager;
+    int tasta;
+    int temp = 0;
     do {
+        
         std::cout << "alege una din urmatoare optiuni: \n";
         std::cout << "1-> numar conturi\n";
         std::cout << "2-> creare cont\n";
-        std::cout << "3-> modificare cont\n";//TODO: homework - > Modificare cont poate schimba nume, prenume
+        std::cout << "3-> modificare cont\n";//TODO-done?: homework - > Modificare cont poate schimba nume, prenume
         std::cout << "4-> stergere cont\n";
         std::cout << "5-> eliberare/depunere\n";
         std::cout << "6-> detalii cont\n";//TODO: tema restanta
@@ -59,7 +62,18 @@ int main()
             break;
         case 3:
             std::cout << "ati ales optiunea 3\n";
-            manager.Modificare_cont();
+            //int temp=0;
+            temp = manager.Modificare_cont();
+            if (temp == 0)
+            {
+                std::cout << "cont inexistent sau nume si prenume gresit\n";
+                std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 3 pentru a reincerca\n";
+                std::cin >> optiune;
+            }
+            else
+            {
+                std::cout << "operatiune realizata cu succes\n";
+            }
             break;
         case 4:
             std::cout << "ati ales optiunea 4\n";
@@ -78,21 +92,26 @@ int main()
             //Vrei sa le accesati pe toate->apasati tasta 2
             std::cout << "Daca vreti sa cautati un anumit cont apasati tasta 1\n";
             std::cout << "Daca vreti afisati toate conturile apasati tasta 2\n";
-            int tasta;
+            
             std::cin >> tasta;
             do {                
                 std::string cautaNume;
                 std::string cautaPrenume;
+                //int temp = 1;
                 switch (tasta)
                 {
                 case 1:
-                    std::cout << "Ati ales sa accesati un anumit cont\n";
-                    
+                    std::cout << "Ati ales sa accesati un anumit cont\n";                    
                     std::cout << "Va rugam sa introduceti numele beneficiarului de cont\n";
                     std::cin >> cautaNume;
                     std::cout << "Va rugam sa introduceti prenumele beneficiarului de cont\n";
                     std::cin >> cautaPrenume;
-                    manager.PrintASpecificCont( cautaNume, cautaPrenume);
+                    temp = manager.PrintASpecificCont( cautaNume, cautaPrenume);
+                    if (temp == 0)
+                    {
+                        std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 1 sau 2 pentru a face operatiile anterioare\n";
+                        std::cin >> tasta;
+                    }                    
                     break;
                 case 2:
                     std::cout << "Ati ales sa accesati toate conturile\n";
@@ -102,7 +121,8 @@ int main()
                     break;
                 default:
                     std::cout << "Optiune invalida\n";
-                    std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";      
+                    std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 1 sau 2 pentru a face operatiile anterioare\n";
+                    std::cin >> tasta;
                     break;
                 }
             } while (tasta != 0);

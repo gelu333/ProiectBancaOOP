@@ -26,9 +26,9 @@ public:
 
 	ManagerConturi();
 	~ManagerConturi();
-	void PrintASpecificCont(const std::string& cautaNume,const std::string& cautaPrenume);
+	int PrintASpecificCont(const std::string& cautaNume,const std::string& cautaPrenume);
 
-	void Modificare_cont();
+	int Modificare_cont();
 
 };
 
