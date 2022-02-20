@@ -90,12 +90,11 @@ void ManagerConturi::printAllConturi()
 		std::cout << "prenume: " << cont->getPrenume() << std::endl;
 		std::cout << "iban: " << cont->getIban() << std::endl;
 		std::cout << "sold: " << cont->getSold() << std::endl;
-
-
 	}
-	std::cout << "Apasati/introduceti orice tasta '0' pentru a va intoarce\n";
+	/*std::cout << "Apasati tasta 0 pentru a va intoarce"<<std::endl;
 	char back;
-	std::cin >> back;
+	std::cin >> back;*/
+	//return back;
 }
 
 void ManagerConturi::EraseAccount()
@@ -104,8 +103,7 @@ void ManagerConturi::EraseAccount()
 	ContBancar* cont = FindAccount();
 	std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
 	m_listaConturi.erase(it);
-	delete cont;
-	
+	delete cont;	
 }
 
 void ManagerConturi::Eliberare_Depunere()
@@ -173,4 +171,35 @@ void ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::
 	char back;
 	std::cout << "apasati orice tasta pentru a va intoarce\n";
 	std::cin >> back;
+}
+
+void ManagerConturi::Modificare_cont()
+{
+	ContBancar* cont = FindAccount();
+	if(cont !=nullptr)
+	{ 
+		std::cout << "daca doriti sa modificati numele apasati orice tasta in afara de 0\n";
+		bool n, m = false;
+		std::cin >> n;
+		if (n)
+		{
+			std::cout << "Introduceti numele nou\n";
+			std::string nume;
+			std::cin >> nume;
+			cont->changeNume(nume);
+		}
+		std::cout << "daca doriti sa schimbati prenumele apasati orice tasta in afara de 0\n";
+		std::cin >> m;
+		if (m)
+		{
+			std::cout << "Introduceti prenume nou\n";
+			std::string prenume;
+			std::cin >> prenume;
+			cont->changeNume(prenume);
+		}
+	}
+	else
+	{
+		std::cout << "cont inexistent\n";
+	}
 }

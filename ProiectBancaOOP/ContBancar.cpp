@@ -36,6 +36,16 @@ void ContBancar::manipulareSold(float suma)
 	m_sold += suma;
 }
 
+void ContBancar::changeNume(const std::string& changenume)
+{
+	m_nume = changenume;
+}
+
+void ContBancar::changePrenume(const std::string& changeprenume)
+{
+	m_prenume = changeprenume;
+}
+
 //void ContBancar::retragere(float suma)
 //{
 //	m_sold += suma;

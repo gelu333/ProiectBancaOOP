@@ -59,6 +59,7 @@ int main()
             break;
         case 3:
             std::cout << "ati ales optiunea 3\n";
+            manager.Modificare_cont();
             break;
         case 4:
             std::cout << "ati ales optiunea 4\n";
@@ -96,10 +97,13 @@ int main()
                 case 2:
                     std::cout << "Ati ales sa accesati toate conturile\n";
                     manager.printAllConturi();
+                    std::cout << "daca vrei sa iesi apasa 0\n";
+                    std::cin >> tasta;                   
                     break;
                 default:
                     std::cout << "Optiune invalida\n";
-                    std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";                
+                    std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";      
+                    break;
                 }
             } while (tasta != 0);
             break;

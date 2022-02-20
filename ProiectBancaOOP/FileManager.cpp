@@ -1,5 +1,6 @@
 #include "FileManager.h"
-
+//https://www.geeksforgeeks.org/csv-file-management-using-c/
+//https://www.gormanalysis.com/blog/reading-and-writing-csv-files-with-cpp/
 
 void FileManager::WriteToCSV(std::string nume,std::string prenume,std::string iban,float sold)
 {
