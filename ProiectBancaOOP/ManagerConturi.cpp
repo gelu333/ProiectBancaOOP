@@ -1,16 +1,24 @@
 #include "ManagerConturi.h"
 #include<iostream>
 //#include<string>
-//TODO TEMA: Adaptati metoda CreateIban pentru a genera Ibanuri unice 
+//TODO-done: Adaptati metoda CreateIban pentru a genera Ibanuri unice 
 //Format:RO44ItSchool(caractere alfa-numerice - 5) astea ultimele 5 sa fie unice pentru IBAN
 std::string ManagerConturi::CreateIban()
 {
+
+	//old method, not completley 
+	//int iban = 11111 + (std::rand() % (99999));
+	
+	//new method
+	//https://www.cplusplus.com/reference/cstdlib/rand/
+	//https://www.programiz.com/cpp-programming/library-function/cstdlib/srand
+	 /* initialize random seed: */
+	srand(time(NULL));
 	int iban = 11111 + (std::rand() % (99999));
 	std::string stringIban = std::to_string(iban);
 	std::cout << "IBAN generat:  "<< stringIban << std::endl;
 	std::string stringIbanComplet = "RO44ItSchool"+stringIban;
 	return stringIbanComplet;
-
 }
 ContBancar* ManagerConturi::FindAccount()
 {
