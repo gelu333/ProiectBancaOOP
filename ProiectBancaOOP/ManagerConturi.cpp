@@ -20,6 +20,7 @@ std::string ManagerConturi::CreateIban()
 	std::string stringIbanComplet = "RO44ItSchool"+stringIban;
 	return stringIbanComplet;
 }
+
 ContBancar* ManagerConturi::FindAccount()
 {
 	std::cout << "numele tutularului: \n";
@@ -111,6 +112,10 @@ int ManagerConturi::EraseAccount()
 		std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
 		m_listaConturi.erase(it);
 		delete cont;
+		//must erase also from .csv file
+		//https://www.geeksforgeeks.org/csv-file-management-using-c/
+		//https://www.geeksforgeeks.org/file-handling-c-classes/
+
 		return 1;
 	}
 	else
