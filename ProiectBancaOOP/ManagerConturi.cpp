@@ -111,35 +111,25 @@ int ManagerConturi::EraseAccount()
 	{
 		std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
 		m_listaConturi.erase(it);
-		delete cont;
-		//must erase also from .csv file
-		//method not needed 
-		//https://www.geeksforgeeks.org/csv-file-management-using-c/
-		//https://www.geeksforgeeks.org/file-handling-c-classes/
+		delete cont;		
 		//1 erase file
 		//https://www.cplusplus.com/reference/cstdio/remove/
 		if (remove("ConturiDataBase.csv") != 0)
 		{
-				perror("Error deleting file");
+				std::cout<<"Error deleting file"<<std::endl;
 		}
 		else
 		{
-				puts("File successfully deleted");
+			std::cout << "File successfully deleted" << std::endl;
 		}
-		//2 write the hole .csv file from scratch
+		//2 write the whole .csv file from scratch
 		if (GetNumarConturi() != 0)
 		{
 			for (auto& cont : m_listaConturi)
 			{			
 				m_fileManager->WriteToCSV(cont->getNume(), cont->getPrenume(), cont->getIban(), cont->getSold());
 			}			
-		}
-
-		/*for (int i = 0; i < m_listaConturi.size(); i++) 
-		{
-			std::cout << m_listaConturi[1] << std::endl;
-		}*/
-		//m_fileManager->WriteToCSV(nume, prenume, iban, cont->getSold());
+		}		
 		return 1;
 	}
 	else
