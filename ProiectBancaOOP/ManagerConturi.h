@@ -9,7 +9,7 @@ private:
 	std::vector<ContBancar*> m_listaConturi;
 	//TODO-done: metoda createIban trebuie sa genereze un Iban unic care sa fie folosit 
 	//pentru a crea conturi
-	std::string CreateIban();//TODO: BUG: Iban is not entirely unique brecause if we stop the program it starts reusing keys
+	std::string CreateIban();//TODO-done: BUG: Iban is not entirely unique brecause if we stop the program it starts reusing keys
 	ContBancar* FindAccount();
 	FileManager* m_fileManager;
 

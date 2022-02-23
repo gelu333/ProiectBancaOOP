@@ -147,6 +147,24 @@ void ManagerConturi::Eliberare_Depunere()
 		std::cout << "introdu valoare: \n";
 		std::cin >> valoare;
 		cont->manipulareSold(valoare);
+		//1 erase file
+		//https://www.cplusplus.com/reference/cstdio/remove/
+		if (remove("ConturiDataBase.csv") != 0)
+		{
+			std::cout << "Error deleting file" << std::endl;
+		}
+		else
+		{
+			std::cout << "File successfully deleted" << std::endl;
+		}
+		//2 write the whole .csv file from scratch
+		if (GetNumarConturi() != 0)
+		{
+			for (auto& cont : m_listaConturi)
+			{
+				m_fileManager->WriteToCSV(cont->getNume(), cont->getPrenume(), cont->getIban(), cont->getSold());
+			}
+		}
 		/*if (valoare >= 0)
 		{
 			cont->depunere(valoare);
@@ -230,7 +248,25 @@ int ManagerConturi::Modificare_cont()
 			std::cout << "Introduceti prenume nou\n";
 			std::string prenume;
 			std::cin >> prenume;
-			cont->changeNume(prenume);
+			cont->changePrenume(prenume);
+		}
+		// 1 erase file
+		//https://www.cplusplus.com/reference/cstdio/remove/
+		if (remove("ConturiDataBase.csv") != 0)
+		{
+			std::cout << "Error deleting file" << std::endl;
+		}
+		else
+		{
+				std::cout << "File successfully deleted" << std::endl;
+		}
+		//2 write the whole .csv file from scratch
+		if (GetNumarConturi() != 0)
+		{
+			for (auto& cont : m_listaConturi)
+			{
+				m_fileManager->WriteToCSV(cont->getNume(), cont->getPrenume(), cont->getIban(), cont->getSold());
+			}
 		}
 		return 1;
 	}

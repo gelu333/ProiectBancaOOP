@@ -24,13 +24,14 @@
 #include <iostream>
 //#include "ContBancar.h"
 #include "ManagerConturi.h"
-//TODO:la optiunea Modificare Cont , schimbarea in cauza trebuie sa fie reflectata si in .csv
+//TODO-done:la optiunea Modificare Cont , schimbarea in cauza trebuie sa fie reflectata si in .csv
 //TODO-done:la optiunea stergere cont dupa ce este sters din m_lista_conturi trebuie sters si din .csv
 //TODO: un sistem de user si parola ca sa asiguram ca operatorul poate sa lucreze pe statia respectiva
 //TODO: la optiunea la eliberare/depunere modificarile sa fie reflectate si in .csv
 int main()
 {
     
+         
      //ContBancar test("popistas", "Sergiu", "ro10235");
      //ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
     int optiune;
