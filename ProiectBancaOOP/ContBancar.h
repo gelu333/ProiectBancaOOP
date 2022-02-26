@@ -17,7 +17,7 @@ class ContBancar
 	//TODO: tipul soldului va trebui sa fie modificat intr-un enum 0=RON, 1=EUR
 	TipMoneda m_tipSold;
 public:
-	ContBancar(std::string nume, std::string prenume, std::string iban);
+	ContBancar(std::string nume, std::string prenume, std::string iban,float sold);
 	std::string getNume() const;
 	std::string getPrenume() const;
 	std::string getIban() const;

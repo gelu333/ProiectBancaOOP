@@ -52,6 +52,7 @@ std::string ManagerConturi::CreateIban()
 void ManagerConturi::adaugareCont()
 {
 	std::string nume, prenume, iban;
+	float sold=0;
 	std::cout << "introduceti numele persoanei: \n";
 	std::cin >> nume;
 	std::cout << "introduceti prenumele persoanei: \n";
@@ -59,7 +60,7 @@ void ManagerConturi::adaugareCont()
 	//TODO: replace whith createIban()
 	iban = CreateIban();
 	//ContBancar* cont = new ContBancar(nume, prenume, iban);
-	ContBancar* cont = new ContBancar(nume, prenume, iban);
+	ContBancar* cont = new ContBancar(nume, prenume, iban,sold);
 	//cont bancar creat 
 	std::cout << "cont bancar creat: " << std::endl;
 	m_listaConturi.push_back(cont);

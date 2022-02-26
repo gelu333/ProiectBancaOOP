@@ -1,10 +1,10 @@
 #include "ContBancar.h"
 
-ContBancar::ContBancar(std::string nume, std::string prenume, std::string iban)
+ContBancar::ContBancar(std::string nume, std::string prenume, std::string iban,float sold)
 {
 	m_nume = nume;;
 	m_prenume = prenume;
-	m_sold = 0;
+	m_sold = sold;
 	m_IBAN = iban;
 	//TODO: tipul soldului va trebui sa fie modificat intr-un enum 0=RON, 1=EUR
 	m_tipSold = TipMoneda::RON;
