@@ -26,11 +26,31 @@
 #include "ManagerConturi.h"
 //TODO-done:la optiunea Modificare Cont , schimbarea in cauza trebuie sa fie reflectata si in .csv
 //TODO-done:la optiunea stergere cont dupa ce este sters din m_lista_conturi trebuie sters si din .csv
-//TODO: un sistem de user si parola ca sa asiguram ca operatorul poate sa lucreze pe statia respectiva
+//TODO-done: un sistem de user si parola ca sa asiguram ca operatorul poate sa lucreze pe statia respectiva
 //TODO-done: la optiunea la eliberare/depunere modificarile sa fie reflectate si in .csv
 int main()
 {
     
+    //user/password check
+    bool check = true;
+    std::string passTemp = "";
+    std::string password = "xxxx";
+    do {
+        std::cout << "introdu password" << std::endl;
+        std::cin >> passTemp;;
+
+        if (password.compare(passTemp) != 0) 
+        {
+            std::cout << "parola introdusa este gresita mai incercati" << std::endl;
+        }
+        else
+        {
+            check = false;
+            system("cls");
+
+        }
+    } while (check);
+
          
      //ContBancar test("popistas", "Sergiu", "ro10235");
      //ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
@@ -46,7 +66,7 @@ int main()
         std::cout << "3-> modificare cont\n";//TODO-done?: homework - > Modificare cont poate schimba nume, prenume
         std::cout << "4-> stergere cont\n";
         std::cout << "5-> eliberare/depunere\n";
-        std::cout << "6-> detalii cont\n";//TODO: tema restanta
+        std::cout << "6-> detalii cont\n";//TODO-done: tema restanta
         std::cout << "0-> exit\n";
         std::cout << "introduceti operatia pe care o doriti\n";
         std::cin >> optiune;
