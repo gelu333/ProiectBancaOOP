@@ -26,7 +26,7 @@ ContBancar* ManagerConturi::FindAccount()
 	std::cout << "numele tutularului: \n";
 	std::string nume;
 	std::cin >> nume;
-	//ToDo-done? trebuie extins sie facem o metoda ce accepta NUme sau Prenume, fie facem cumva in aceasta metoda
+	//ToDo: trebuie extins sie facem o metoda ce accepta NUme sau Prenume, fie facem cumva in aceasta metoda
 	for (auto& cont : m_listaConturi)
 	{
 		if (cont->getNume() == nume)
@@ -57,7 +57,7 @@ void ManagerConturi::adaugareCont()
 	std::cin >> nume;
 	std::cout << "introduceti prenumele persoanei: \n";
 	std::cin >> prenume;
-	//TODO: replace whith createIban()
+	//TODO-done: replace whith createIban()
 	iban = CreateIban();
 	//ContBancar* cont = new ContBancar(nume, prenume, iban);
 	ContBancar* cont = new ContBancar(nume, prenume, iban,sold);
@@ -197,7 +197,8 @@ ManagerConturi::~ManagerConturi()
 {
 	delete m_fileManager;
 	//m_listaConturi.clear();
-	//TODO: Iteran m_lista conturi si stergem fiecare cont in parte dupa care clear-uim
+	//TODO?: Iteran m_lista conturi si stergem fiecare cont in parte dupa care clear-uim
+	//de intrebat daca mai trebe facut ceva?
 }
 
 int ManagerConturi::PrintASpecificCont(const std::string& cautaNume,const std::string& cautaPrenume)
