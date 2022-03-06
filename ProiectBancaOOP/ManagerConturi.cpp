@@ -49,6 +49,8 @@ std::string ManagerConturi::CreateIban()
 
 
 
+
+
 void ManagerConturi::adaugareCont()
 {
 	std::string nume, prenume, iban;
@@ -276,4 +278,25 @@ int ManagerConturi::Modificare_cont()
 	{		
 		return 0;
 	}
+}
+
+// initializez aici din comoditate
+//varaibila astatica trebuie initializata la prima chemare
+ManagerConturi* ManagerConturi::instance = 0;
+
+ManagerConturi* ManagerConturi::getInstance()
+{
+	
+	if (instance != nullptr)
+	{
+		return instance;
+	}
+	else
+	{
+		instance = new ManagerConturi();
+		return instance;
+
+	}
+
+	//return nullptr;
 }

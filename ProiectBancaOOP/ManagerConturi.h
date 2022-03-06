@@ -12,8 +12,14 @@ private:
 	std::string CreateIban();//TODO-done: BUG: Iban is not entirely unique brecause if we stop the program it starts reusing keys
 	ContBancar* FindAccount();
 	FileManager* m_fileManager;
+	//incercam sa il facem singleton
+	static ManagerConturi* instance;
 
 public:
+
+	//avem nevoie de o metoda publica ca sa accesam poointerul static singleton
+	static ManagerConturi* getInstance();
+
 	void adaugareCont();
 
 	int GetNumarConturi();

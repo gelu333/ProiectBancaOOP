@@ -28,7 +28,8 @@
 //TODO-done:la optiunea stergere cont dupa ce este sters din m_lista_conturi trebuie sters si din .csv
 //TODO-done: un sistem de user si parola ca sa asiguram ca operatorul poate sa lucreze pe statia respectiva
 //TODO-done: la optiunea la eliberare/depunere modificarile sa fie reflectate si in .csv
-//TODO: clasa "csv writer sa o fac intro clasa singleton"
+//TODO-pending: clasa "csv writer sa o fac intro clasa singleton"
+//TODO-done: clasa manager sa fie intro clasa singleton
 int main()
 {
     
@@ -56,7 +57,9 @@ int main()
      //ContBancar test("popistas", "Sergiu", "ro10235");
      //ContBancar* cont = new ContBancar("popistas", "sergiu", "ro938475");
     int optiune;
-    ManagerConturi manager;
+    //ManagerConturi manager;
+    // vrem sa folosim singleton
+    ManagerConturi* s = s->getInstance();
     int tasta;
     int temp = 0;
     do {
@@ -75,17 +78,18 @@ int main()
         {
         case 1:
             std::cout << "ati ales optiunea 1\n";
-            std::cout << "numarul total de conturi este:    " << manager.GetNumarConturi() << std::endl;
+            std::cout << "numarul total de conturi este:    " << s->GetNumarConturi()/*manager.GetNumarConturi()*/ << std::endl;
             break;
         case 2:
             std::cout << "ati ales optiunea 2\n";
             system("cls");
-            manager.adaugareCont();
+            //manager.adaugareCont();
+            s->adaugareCont();
             break;
         case 3:
             std::cout << "ati ales optiunea 3\n";
             //int temp=0;
-            temp = manager.Modificare_cont();
+            temp = s->Modificare_cont()/*manager.Modificare_cont()*/;
             if (temp == 0)
             {
                 std::cout << "cont inexistent sau nume si prenume gresit, reluati operatiunea de la inceput\n";
@@ -99,7 +103,7 @@ int main()
             break;
         case 4:
             std::cout << "ati ales optiunea 4\n";
-            temp = manager.EraseAccount();
+            temp = s->EraseAccount()/*manager.EraseAccount()*/;
             if (temp == 0)
             {
                 std::cout << "cont inexistent sau nume si prenume gresit, reluati operatiunea de la inceput\n";
@@ -114,7 +118,8 @@ int main()
         case 5:
             std::cout << "ati ales optiunea 5\n";
             //ToDoforMe - sa il aduc la o forma ca cele de mai sus
-            manager.Eliberare_Depunere();
+            //manager.Eliberare_Depunere();
+            s->Eliberare_Depunere();
             break;
         case 6:
             std::cout << "ati ales optiunea 6\n";
@@ -139,7 +144,7 @@ int main()
                     std::cin >> cautaNume;
                     std::cout << "Va rugam sa introduceti prenumele beneficiarului de cont\n";
                     std::cin >> cautaPrenume;
-                    temp = manager.PrintASpecificCont( cautaNume, cautaPrenume);
+                    temp = s->PrintASpecificCont(cautaNume,cautaPrenume)/*manager.PrintASpecificCont( cautaNume, cautaPrenume)*/;
                     if (temp == 0)
                     {
                         std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 1 sau 2 pentru a face operatiile anterioare\n";
@@ -149,7 +154,7 @@ int main()
                     break;
                 case 2:
                     std::cout << "Ati ales sa accesati toate conturile\n";
-                    temp = manager.printAllConturi();
+                    temp = s->printAllConturi()/*manager.printAllConturi()*/;
                     if (temp == 0)
                     {
                         std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n 1 sau 2 pentru a face operatiile anterioare\n";
