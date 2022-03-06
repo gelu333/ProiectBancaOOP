@@ -28,6 +28,7 @@
 //TODO-done:la optiunea stergere cont dupa ce este sters din m_lista_conturi trebuie sters si din .csv
 //TODO-done: un sistem de user si parola ca sa asiguram ca operatorul poate sa lucreze pe statia respectiva
 //TODO-done: la optiunea la eliberare/depunere modificarile sa fie reflectate si in .csv
+//TODO: clasa "csv writer sa o fac intro clasa singleton"
 int main()
 {
     
